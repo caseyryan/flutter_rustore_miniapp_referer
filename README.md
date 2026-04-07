@@ -1,6 +1,9 @@
 # flutter_rustore_miniapp_referrer
 
-Плагин позволяет получить `referrerId` из приложения **RuStore**, если пользователь установил ваше приложение по реферальной (рекламной) ссылке, или из Web App.
+Плагин позволяет получить `referrerId` из приложения **RuStore**, если пользователь установил ваше приложение по реферальной (рекламной) ссылке.
+То же самое можно сделать при отрытии вашего приложения напрямую на сайте. При этом поддерживаются параметры `utm_source` и `referrerId`. В RuStore только `referrerId`.
+
+[Скачать](https://pub.dev/packages/flutter_rustore_miniapp_referrer)
 
 ---
 
@@ -11,7 +14,7 @@
 `https://www.rustore.ru/catalog/app/com.packagename.yourapp?referrerId=<referrer>`
 
 
-то данный плагин позволяет получить значение параметра `referrerId` прямо внутри вашего Flutter-приложения от RuStore. Подробнее Подробнее [здесь](https://www.rustore.ru/help/sdk/install-referrer/kotlin/10-0-0)
+то данный плагин позволяет получить значение параметра `referrerId` прямо внутри вашего Flutter-приложения от RuStore. Подробнее [здесь](https://www.rustore.ru/help/sdk/install-referrer/kotlin/10-0-0)
 
 
 Это полезно для:
