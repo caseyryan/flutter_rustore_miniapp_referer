@@ -14,13 +14,20 @@ class MethodChannelFlutterRustoreMiniappReferer extends FlutterRustoreMiniappRef
 
   @override
   Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
+    final version = await methodChannel.invokeMethod<String>(
+      'getPlatformVersion',
+    );
     return version;
   }
 
   @override
   Future<RefererData?> getRefererInfo([bool debug = false]) async {
-    final result = await methodChannel.invokeMethod<String>('getRefererInfo', {'debug': debug});
+    final result = await methodChannel.invokeMethod<String>(
+      'getRefererInfo',
+      {
+        'debug': debug,
+      },
+    );
     if (result == null) return null;
     return RefererData.fromJson(jsonDecode(result));
   }

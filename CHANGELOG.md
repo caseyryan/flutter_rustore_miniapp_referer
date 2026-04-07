@@ -1,3 +1,3 @@
-## 0.0.1
+## 1.0.0
 
-* TODO: Describe initial release.
+* Базовый функционал. Позволяет вытаскивать и хранить refererId из RuStore и Web App

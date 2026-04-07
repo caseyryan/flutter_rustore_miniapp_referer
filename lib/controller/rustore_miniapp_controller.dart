@@ -26,7 +26,11 @@ class RuStoreMiniAppController extends LiteStateController<RuStoreMiniAppControl
   bool _isDebug = false;
 
   void setDebug(bool value) {
+    if (_isDebug != value) {
+      _refererData = null;
+    }
     _isDebug = value;
+    loadRefererData(_isDebug);
   }
 
   @override

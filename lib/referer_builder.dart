@@ -27,6 +27,14 @@ class _RefererInfoBuilderState extends State<RefererInfoBuilder> {
     super.initState();
   }
 
+  @override
+  void didUpdateWidget(covariant RefererInfoBuilder oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.debug != oldWidget.debug) {
+      ruStoreMiniAppController.setDebug(widget.debug);
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {

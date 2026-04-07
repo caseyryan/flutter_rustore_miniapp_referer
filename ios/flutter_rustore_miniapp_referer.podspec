@@ -5,9 +5,9 @@
 Pod::Spec.new do |s|
   s.name             = 'flutter_rustore_miniapp_referer'
   s.version          = '0.0.1'
-  s.summary          = 'A flutter plugin which allows to get marketing referer from RuStore and Telegram, VK, Max mini app'
+  s.summary          = 'A flutter plugin which allows to get marketing referer from RuStore and Web App'
   s.description      = <<-DESC
-A flutter plugin which allows to get marketing referer from RuStore and Telegram, VK, Max mini app
+A flutter plugin which allows to get marketing referer from RuStore and Web App
                        DESC
   s.homepage         = 'http://example.com'
   s.license          = { :file => '../LICENSE' }

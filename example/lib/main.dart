@@ -16,26 +16,58 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 
+  bool _isDebug = true;
+
   @override
   void initState() {
     super.initState();
   }
 
+  String get _title {
+    return _isDebug ? 'Debug' : 'Release';
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
-        ),
+        appBar: AppBar(title: Text(_title)),
         body: RefererInfoBuilder(
-          /// поменяй на false, если надо проверить на реальных данных
-          debug: true,
+          debug: _isDebug,
           builder: (RefererData? refererData) {
             return Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Center(child: Text('refererData: $refererData')),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SizedBox(width: double.infinity,),
+                  Text(
+                    '$_title refererData: $refererData',
+                  ),
+                  MaterialButton(
+                    color: Colors.green,
+                    onPressed: () {
+                      setState(() {
+                        _isDebug = true;
+                      });
+                    },
+                    child: Text(
+                      'Debug Данные',
+                    ),
+                  ),
+                  MaterialButton(
+                    color: Colors.amber,
+                    onPressed: () {
+                      setState(() {
+                        _isDebug = false;
+                      });
+                    },
+                    child: Text(
+                      'Реальные Данные',
+                    ),
+                  ),
+                ],
+              ),
             );
           },
         ),
