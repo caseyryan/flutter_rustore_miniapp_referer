@@ -30,6 +30,7 @@
 - **Web**: `referrerId` извлекается из URL (query-параметров)
 так же на веб поддерживается параметр `utm_source`
 То есть ссылка может быть вида:
+
 `https://yoursite.ru?referrerId=SomeReferer123`
 
 или
