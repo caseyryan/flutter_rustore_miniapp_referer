@@ -8,7 +8,8 @@ abstract class FlutterRustoreMiniappReferrerPlatform extends PlatformInterface {
 
   static final Object _token = Object();
 
-  static FlutterRustoreMiniappReferrerPlatform _instance = MethodChannelFlutterRustoreMiniappReferrer();
+  static FlutterRustoreMiniappReferrerPlatform _instance =
+      MethodChannelFlutterRustoreMiniappReferrer();
   static FlutterRustoreMiniappReferrerPlatform get instance => _instance;
 
   static set instance(FlutterRustoreMiniappReferrerPlatform instance) {
@@ -19,6 +20,7 @@ abstract class FlutterRustoreMiniappReferrerPlatform extends PlatformInterface {
   Future<String?> getPlatformVersion() {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
+
   Future<ReferrerData?> getReferrerInfo([bool debug = false]) {
     throw UnimplementedError('getReferrerInfo() has not been implemented.');
   }

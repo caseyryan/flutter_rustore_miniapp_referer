@@ -7,7 +7,8 @@ import 'package:flutter_rustore_miniapp_referrer/models/referrer_data.dart';
 import 'flutter_rustore_miniapp_referrer_platform_interface.dart';
 
 /// An implementation of [FlutterRustoreMiniappReferrerPlatform] that uses method channels.
-class MethodChannelFlutterRustoreMiniappReferrer extends FlutterRustoreMiniappReferrerPlatform {
+class MethodChannelFlutterRustoreMiniappReferrer
+    extends FlutterRustoreMiniappReferrerPlatform {
   /// The method channel used to interact with the native platform.
   @visibleForTesting
   final methodChannel = const MethodChannel('flutter_rustore_miniapp_referrer');

@@ -5,20 +5,25 @@ import 'package:flutter_rustore_miniapp_referrer/flutter_rustore_miniapp_referre
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  MethodChannelFlutterRustoreMiniappReferrer platform = MethodChannelFlutterRustoreMiniappReferrer();
-  const MethodChannel channel = MethodChannel('flutter_rustore_miniapp_referrer');
+  MethodChannelFlutterRustoreMiniappReferrer platform =
+      MethodChannelFlutterRustoreMiniappReferrer();
+  const MethodChannel channel = MethodChannel(
+    'flutter_rustore_miniapp_referrer',
+  );
 
   setUp(() {
-    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(
-      channel,
-      (MethodCall methodCall) async {
-        return '42';
-      },
-    );
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(
+          channel,
+          (MethodCall methodCall) async {
+            return '42';
+          },
+        );
   });
 
   tearDown(() {
-    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(channel, null);
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(channel, null);
   });
 
   test('getPlatformVersion', () async {

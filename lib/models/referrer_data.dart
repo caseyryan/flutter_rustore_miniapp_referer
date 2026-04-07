@@ -4,7 +4,6 @@ import 'dart:convert';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:lite_state/lite_state.dart';
 
-
 part 'referrer_data.g.dart';
 
 @JsonSerializable(explicitToJson: true)
@@ -26,9 +25,9 @@ class ReferrerData implements LSJsonEncodable {
   }
 
   factory ReferrerData.fromJson(Map<String, dynamic> json) {
-      return _$ReferrerDataFromJson(json);
-    }
-  
+    return _$ReferrerDataFromJson(json);
+  }
+
   Map<String, dynamic> toJson() {
     return _$ReferrerDataToJson(this);
   }

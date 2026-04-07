@@ -14,7 +14,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   bool _isDebug = true;
 
   @override
@@ -40,7 +39,9 @@ class _MyAppState extends State<MyApp> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(width: double.infinity,),
+                  const SizedBox(
+                    width: double.infinity,
+                  ),
                   Text(
                     '$_title referrerData: $referrerData',
                   ),
@@ -75,4 +76,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-

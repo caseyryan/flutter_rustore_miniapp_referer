@@ -5,12 +5,16 @@ import 'package:lite_state/lite_state.dart';
 
 typedef ReferrerBuilder = Widget Function(ReferrerData? referrerData);
 
-
 class ReferrerInfoBuilder extends StatefulWidget {
-  const ReferrerInfoBuilder({super.key, required this.builder, this.debug = false});
+  const ReferrerInfoBuilder({
+    super.key,
+    required this.builder,
+    this.debug = false,
+  });
 
   final ReferrerBuilder builder;
-  /// [debug] если передать true, то будет возвращать мок 
+
+  /// [debug] если передать true, то будет возвращать мок
   /// данные, независимо от того запущено приложение по валидной ссылке или нет
   /// Нужно просто для проверки того, как клиентская часть получает и обрабатывает данные
   final bool debug;
@@ -20,7 +24,6 @@ class ReferrerInfoBuilder extends StatefulWidget {
 }
 
 class _ReferrerInfoBuilderState extends State<ReferrerInfoBuilder> {
-
   @override
   void initState() {
     ruStoreMiniAppController.setDebug(widget.debug);
@@ -34,7 +37,6 @@ class _ReferrerInfoBuilderState extends State<ReferrerInfoBuilder> {
       ruStoreMiniAppController.setDebug(widget.debug);
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
