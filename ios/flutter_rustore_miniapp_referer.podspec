@@ -1,13 +1,13 @@
 #
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
-# Run `pod lib lint flutter_rustore_miniapp_referer.podspec` to validate before publishing.
+# Run `pod lib lint flutter_rustore_miniapp_referrer.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'flutter_rustore_miniapp_referer'
+  s.name             = 'flutter_rustore_miniapp_referrer'
   s.version          = '0.0.1'
-  s.summary          = 'A flutter plugin which allows to get marketing referer from RuStore and Telegram, VK, Max mini app'
+  s.summary          = 'A flutter plugin which allows to get marketing referrer from RuStore and Web App'
   s.description      = <<-DESC
-A flutter plugin which allows to get marketing referer from RuStore and Telegram, VK, Max mini app
+A flutter plugin which allows to get marketing referrer from RuStore and Web App
                        DESC
   s.homepage         = 'http://example.com'
   s.license          = { :file => '../LICENSE' }
@@ -25,5 +25,5 @@ A flutter plugin which allows to get marketing referer from RuStore and Telegram
   # required reason APIs, update the PrivacyInfo.xcprivacy file to describe your
   # plugin's privacy impact, and then uncomment this line. For more information,
   # see https://developer.apple.com/documentation/bundleresources/privacy_manifest_files
-  # s.resource_bundles = {'flutter_rustore_miniapp_referer_privacy' => ['Resources/PrivacyInfo.xcprivacy']}
+  # s.resource_bundles = {'flutter_rustore_miniapp_referrer_privacy' => ['Resources/PrivacyInfo.xcprivacy']}
 end

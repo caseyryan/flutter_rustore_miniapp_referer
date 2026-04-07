@@ -5,32 +5,32 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:lite_state/lite_state.dart';
 
 
-part 'referer_data.g.dart';
+part 'referrer_data.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class RefererData implements LSJsonEncodable {
-  RefererData({
+class ReferrerData implements LSJsonEncodable {
+  ReferrerData({
     this.success,
-    this.refererId,
+    this.referrerId,
     this.error,
     this.packageName,
   });
 
   bool? success;
-  String? refererId;
+  String? referrerId;
   String? error;
   String? packageName;
 
-  static RefererData deserialize(Map<String, dynamic> json) {
-    return RefererData.fromJson(json);
+  static ReferrerData deserialize(Map<String, dynamic> json) {
+    return ReferrerData.fromJson(json);
   }
 
-  factory RefererData.fromJson(Map<String, dynamic> json) {
-      return _$RefererDataFromJson(json);
+  factory ReferrerData.fromJson(Map<String, dynamic> json) {
+      return _$ReferrerDataFromJson(json);
     }
   
   Map<String, dynamic> toJson() {
-    return _$RefererDataToJson(this);
+    return _$ReferrerDataToJson(this);
   }
 
   @override
@@ -38,8 +38,8 @@ class RefererData implements LSJsonEncodable {
     return JsonEncoder.withIndent('  ').convert(toJson());
   }
 
-  static RefererData decode(Map data) {
-    return RefererData.fromJson(data.cast());
+  static ReferrerData decode(Map data) {
+    return ReferrerData.fromJson(data.cast());
   }
 
   @override

@@ -1,11 +1,11 @@
 {
-    "name": "flutter_rustore_miniapp_referer_example",
-    "short_name": "flutter_rustore_miniapp_referer_example",
+    "name": "flutter_rustore_miniapp_referrer_example",
+    "short_name": "flutter_rustore_miniapp_referrer_example",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Demonstrates how to use the flutter_rustore_miniapp_referer plugin.",
+    "description": "Demonstrates how to use the flutter_rustore_miniapp_referrer plugin.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

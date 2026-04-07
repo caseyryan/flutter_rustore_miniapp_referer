@@ -3,7 +3,7 @@ import UIKit
 import XCTest
 
 
-@testable import flutter_rustore_miniapp_referer
+@testable import flutter_rustore_miniapp_referrer
 
 // This demonstrates a simple unit test of the Swift portion of this plugin's implementation.
 //
@@ -12,7 +12,7 @@ import XCTest
 class RunnerTests: XCTestCase {
 
   func testGetPlatformVersion() {
-    let plugin = FlutterRustoreMiniappRefererPlugin()
+    let plugin = FlutterRustoreMiniappReferrerPlugin()
 
     let call = FlutterMethodCall(methodName: "getPlatformVersion", arguments: [])
 

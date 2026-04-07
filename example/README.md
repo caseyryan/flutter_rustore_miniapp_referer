@@ -1,6 +1,6 @@
-# flutter_rustore_miniapp_referer_example
+# flutter_rustore_miniapp_referrer_example
 
-Demonstrates how to use the flutter_rustore_miniapp_referer plugin.
+Demonstrates how to use the flutter_rustore_miniapp_referrer plugin.
 
 ## Getting Started
 

@@ -1,5 +1,5 @@
-import 'package:flutter_rustore_miniapp_referer/flutter_rustore_miniapp_referer.dart';
-import 'package:flutter_rustore_miniapp_referer/models/referer_data.dart';
+import 'package:flutter_rustore_miniapp_referrer/flutter_rustore_miniapp_referrer.dart';
+import 'package:flutter_rustore_miniapp_referrer/models/referrer_data.dart';
 import 'package:lite_state/lite_state.dart';
 
 RuStoreMiniAppController? _ruStoreMiniAppController;
@@ -8,7 +8,7 @@ RuStoreMiniAppController get ruStoreMiniAppController {
   if (_ruStoreMiniAppController == null) {
     _ruStoreMiniAppController = RuStoreMiniAppController();
     initJsonDecoders({
-      RefererData: (data) => RefererData.decode(data),
+      ReferrerData: (data) => ReferrerData.decode(data),
     });
   }
   return _ruStoreMiniAppController!;
@@ -17,44 +17,48 @@ RuStoreMiniAppController get ruStoreMiniAppController {
 class RuStoreMiniAppController extends LiteStateController<RuStoreMiniAppController> {
   RuStoreMiniAppController() : super(preserveLocalStorageOnControllerDispose: true, useLocalStorage: true);
 
-  static const _debugKey = 'debugReferer';
-  static const _prodKey = 'prodReferer';
+  static const _debugKey = 'debugReferrerKey';
+  static const _prodKey = 'prodReferrerKey';
 
-  RefererData? _refererData;
-  RefererData? get refererData => _refererData;
+  ReferrerData? _referrerData;
+  ReferrerData? get referrerData => _referrerData;
 
   bool _isDebug = false;
 
   void setDebug(bool value) {
+    if (_isDebug != value) {
+      _referrerData = null;
+    }
     _isDebug = value;
+    loadReferrerData(_isDebug);
   }
 
   @override
   void reset() {}
 
-  Future loadRefererData([bool debug = false]) async {
+  Future loadReferrerData([bool debug = false]) async {
     if (!isLocalStorageInitialized) {
       return;
     }
     if (debug) {
-      _refererData = await getPersistentValue<RefererData>(_debugKey);
-      if (_refererData != null) {
+      _referrerData = await getPersistentValue<ReferrerData>(_debugKey);
+      if (_referrerData != null) {
         rebuild();
         return;
       }
     } else {
-      _refererData = await getPersistentValue<RefererData>(_prodKey);
-      if (_refererData != null) {
+      _referrerData = await getPersistentValue<ReferrerData>(_prodKey);
+      if (_referrerData != null) {
         rebuild();
         return;
       }
     }
-    _refererData = await FlutterRustoreMiniappReferer().getRefererInfo(debug);
-    if (_refererData?.success == true && _refererData?.refererId?.isNotEmpty == true) {
+    _referrerData = await FlutterRustoreMiniappReferrer().getReferrerInfo(debug);
+    if (_referrerData?.success == true && _referrerData?.referrerId?.isNotEmpty == true) {
       if (debug) {
-        await setPersistentValue<RefererData>(_debugKey, _refererData!);
+        await setPersistentValue<ReferrerData>(_debugKey, _referrerData!);
       } else {
-        await setPersistentValue<RefererData>(_prodKey, _refererData!);
+        await setPersistentValue<ReferrerData>(_prodKey, _referrerData!);
       }
     }
     rebuild();
@@ -62,6 +66,6 @@ class RuStoreMiniAppController extends LiteStateController<RuStoreMiniAppControl
 
   @override
   void onLocalStorageInitialized() {
-    loadRefererData(_isDebug);
+    loadReferrerData(_isDebug);
   }
 }

@@ -1,11 +1,11 @@
 
-import 'package:flutter_rustore_miniapp_referer/models/referer_data.dart';
+import 'package:flutter_rustore_miniapp_referrer/models/referrer_data.dart';
 
-import 'flutter_rustore_miniapp_referer_platform_interface.dart';
+import 'flutter_rustore_miniapp_referrer_platform_interface.dart';
 
-class FlutterRustoreMiniappReferer {
+class FlutterRustoreMiniappReferrer {
   Future<String?> getPlatformVersion() {
-    return FlutterRustoreMiniappRefererPlatform.instance.getPlatformVersion();
+    return FlutterRustoreMiniappReferrerPlatform.instance.getPlatformVersion();
   }
 
   /// [debug] если передать true, то будет возвращать мок 
@@ -13,7 +13,7 @@ class FlutterRustoreMiniappReferer {
   /// это не даст понять насколько правильно получена ссылка, но 
   /// позволит проверить работает ли плагин вообще.
   /// Если данные вернулись, значит нативная часть доступна и нужный метод в плагине вызывается 
-  Future<RefererData?> getRefererInfo([bool debug = false]) {
-    return FlutterRustoreMiniappRefererPlatform.instance.getRefererInfo(debug);
+  Future<ReferrerData?> getReferrerInfo([bool debug = false]) {
+    return FlutterRustoreMiniappReferrerPlatform.instance.getReferrerInfo(debug);
   }
 }

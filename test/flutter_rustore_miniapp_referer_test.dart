@@ -1,36 +1,36 @@
-import 'package:flutter_rustore_miniapp_referer/models/referer_data.dart';
+import 'package:flutter_rustore_miniapp_referrer/models/referrer_data.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_rustore_miniapp_referer/flutter_rustore_miniapp_referer.dart';
-import 'package:flutter_rustore_miniapp_referer/flutter_rustore_miniapp_referer_platform_interface.dart';
-import 'package:flutter_rustore_miniapp_referer/flutter_rustore_miniapp_referer_method_channel.dart';
+import 'package:flutter_rustore_miniapp_referrer/flutter_rustore_miniapp_referrer.dart';
+import 'package:flutter_rustore_miniapp_referrer/flutter_rustore_miniapp_referrer_platform_interface.dart';
+import 'package:flutter_rustore_miniapp_referrer/flutter_rustore_miniapp_referrer_method_channel.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
-class MockFlutterRustoreMiniappRefererPlatform
+class MockFlutterRustoreMiniappReferrerPlatform
     with MockPlatformInterfaceMixin
-    implements FlutterRustoreMiniappRefererPlatform {
+    implements FlutterRustoreMiniappReferrerPlatform {
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
 
   @override
-  Future<RefererData?> getRefererInfo([bool debug = false]) {
+  Future<ReferrerData?> getReferrerInfo([bool debug = false]) {
     return Future.value(
-      RefererData(success: true, refererId: "123", packageName: "com.softmaestri.flutter_rustore_miniapp_referer"),
+      ReferrerData(success: true, referrerId: "123", packageName: "com.softmaestri.flutter_rustore_miniapp_referrer"),
     );
   }
 }
 
 void main() {
-  final FlutterRustoreMiniappRefererPlatform initialPlatform = FlutterRustoreMiniappRefererPlatform.instance;
+  final FlutterRustoreMiniappReferrerPlatform initialPlatform = FlutterRustoreMiniappReferrerPlatform.instance;
 
-  test('$MethodChannelFlutterRustoreMiniappReferer is the default instance', () {
-    expect(initialPlatform, isInstanceOf<MethodChannelFlutterRustoreMiniappReferer>());
+  test('$MethodChannelFlutterRustoreMiniappReferrer is the default instance', () {
+    expect(initialPlatform, isInstanceOf<MethodChannelFlutterRustoreMiniappReferrer>());
   });
 
   test('getPlatformVersion', () async {
-    FlutterRustoreMiniappReferer flutterRustoreMiniappRefererPlugin = FlutterRustoreMiniappReferer();
-    MockFlutterRustoreMiniappRefererPlatform fakePlatform = MockFlutterRustoreMiniappRefererPlatform();
-    FlutterRustoreMiniappRefererPlatform.instance = fakePlatform;
+    FlutterRustoreMiniappReferrer flutterRustoreMiniappReferrerPlugin = FlutterRustoreMiniappReferrer();
+    MockFlutterRustoreMiniappReferrerPlatform fakePlatform = MockFlutterRustoreMiniappReferrerPlatform();
+    FlutterRustoreMiniappReferrerPlatform.instance = fakePlatform;
 
-    expect(await flutterRustoreMiniappRefererPlugin.getPlatformVersion(), '42');
+    expect(await flutterRustoreMiniappReferrerPlugin.getPlatformVersion(), '42');
   });
 }
