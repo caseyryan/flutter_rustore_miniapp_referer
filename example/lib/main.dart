@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rustore_miniapp_referer/models/referer_data.dart';
-
-import 'package:flutter_rustore_miniapp_referer/referer_builder.dart';
+import 'package:flutter_rustore_miniapp_referrer/models/referrer_data.dart';
+import 'package:flutter_rustore_miniapp_referrer/referrer_builder.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,17 +31,18 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: Text(_title)),
-        body: RefererInfoBuilder(
+        body: ReferrerInfoBuilder(
           debug: _isDebug,
-          builder: (RefererData? refererData) {
+          builder: (ReferrerData? referrerData) {
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(width: double.infinity,),
                   Text(
-                    '$_title refererData: $refererData',
+                    '$_title referrerData: $referrerData',
                   ),
                   MaterialButton(
                     color: Colors.green,
@@ -75,3 +75,4 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+

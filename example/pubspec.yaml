@@ -1,5 +1,5 @@
-name: flutter_rustore_miniapp_referer_example
-description: "Demonstrates how to use the flutter_rustore_miniapp_referer plugin."
+name: flutter_rustore_miniapp_referrer_example
+description: "Demonstrates how to use the flutter_rustore_miniapp_referrer plugin."
 
 environment:
   sdk: ^3.10.4
@@ -8,7 +8,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  flutter_rustore_miniapp_referer:
+  flutter_rustore_miniapp_referrer:
     path: ../
 
   cupertino_icons: ^1.0.8

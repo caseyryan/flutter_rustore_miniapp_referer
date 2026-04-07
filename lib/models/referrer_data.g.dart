@@ -1,22 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'referer_data.dart';
+part of 'referrer_data.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-RefererData _$RefererDataFromJson(Map<String, dynamic> json) => RefererData(
+ReferrerData _$ReferrerDataFromJson(Map<String, dynamic> json) => ReferrerData(
   success: json['success'] as bool?,
-  refererId: json['refererId'] as String?,
+  referrerId: json['referrerId'] as String?,
   error: json['error'] as String?,
   packageName: json['packageName'] as String?,
 );
 
-Map<String, dynamic> _$RefererDataToJson(RefererData instance) =>
+Map<String, dynamic> _$ReferrerDataToJson(ReferrerData instance) =>
     <String, dynamic>{
       'success': instance.success,
-      'refererId': instance.refererId,
+      'referrerId': instance.referrerId,
       'error': instance.error,
       'packageName': instance.packageName,
     };

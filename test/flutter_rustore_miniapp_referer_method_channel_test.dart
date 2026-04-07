@@ -1,12 +1,12 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_rustore_miniapp_referer/flutter_rustore_miniapp_referer_method_channel.dart';
+import 'package:flutter_rustore_miniapp_referrer/flutter_rustore_miniapp_referrer_method_channel.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  MethodChannelFlutterRustoreMiniappReferer platform = MethodChannelFlutterRustoreMiniappReferer();
-  const MethodChannel channel = MethodChannel('flutter_rustore_miniapp_referer');
+  MethodChannelFlutterRustoreMiniappReferrer platform = MethodChannelFlutterRustoreMiniappReferrer();
+  const MethodChannel channel = MethodChannel('flutter_rustore_miniapp_referrer');
 
   setUp(() {
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(

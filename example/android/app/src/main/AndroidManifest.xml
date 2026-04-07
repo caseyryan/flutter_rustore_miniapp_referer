@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="flutter_rustore_miniapp_referer_example"
+        android:label="flutter_rustore_miniapp_referrer_example"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

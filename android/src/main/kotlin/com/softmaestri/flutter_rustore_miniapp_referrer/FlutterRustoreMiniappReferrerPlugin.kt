@@ -1,4 +1,4 @@
-package com.softmaestri.flutter_rustore_miniapp_referer
+package com.softmaestri.flutter_rustore_miniapp_referrer
 
 import android.content.Context
 import io.flutter.embedding.engine.plugins.FlutterPlugin
@@ -13,9 +13,8 @@ import ru.rustore.sdk.core.exception.RuStoreOutdatedException
 import ru.rustore.sdk.install.referrer.InstallReferrerClient
 import ru.rustore.sdk.install.referrer.model.InstallReferrerException
 
-
-/** FlutterRustoreMiniappRefererPlugin */
-class FlutterRustoreMiniappRefererPlugin :
+/** FlutterRustoreMiniappReferrerPlugin */
+class FlutterRustoreMiniappReferrerPlugin :
     FlutterPlugin,
     MethodCallHandler {
 
@@ -24,7 +23,7 @@ class FlutterRustoreMiniappRefererPlugin :
 
     override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
         channel =
-            MethodChannel(flutterPluginBinding.binaryMessenger, "flutter_rustore_miniapp_referer")
+            MethodChannel(flutterPluginBinding.binaryMessenger, "flutter_rustore_miniapp_referrer")
         channel.setMethodCallHandler(this)
         context = flutterPluginBinding.applicationContext
     }
@@ -38,9 +37,8 @@ class FlutterRustoreMiniappRefererPlugin :
                 result.success("Android ${android.os.Build.VERSION.RELEASE}")
             }
 
-            "getRefererInfo" -> {
+            "getReferrerInfo" -> {
                 val isDebug = call.argument<Boolean>("debug") ?: false
-
                 fetchInstallReferrer(result, isDebug)
             }
 
@@ -48,7 +46,6 @@ class FlutterRustoreMiniappRefererPlugin :
                 result.notImplemented()
             }
         }
-
     }
 
     private fun fetchInstallReferrer(result: Result, isDebug: Boolean) {
@@ -57,20 +54,23 @@ class FlutterRustoreMiniappRefererPlugin :
             if (isDebug) {
                 val mockJson = JSONObject()
                 mockJson.put("success", true)
-                mockJson.put("refererId", "rustore_test_referer_123")
-                mockJson.put("packageName", "com.softmaestri.flutter_rustore_miniapp_referer")
+                mockJson.put("referrerId", "rustore_test_referrer_123")
+                mockJson.put("packageName", "com.softmaestri.flutter_rustore_miniapp_referrer")
                 result.success(mockJson.toString())
                 return
             }
 
             val currentContext = context
             if (currentContext == null) {
-                // Возвращаем структуру ошибки вместо result.error, чтобы сохранить единообразие JSON
-                result.success(mapOf("success" to false, "error" to "Android Context is null"))
+                result.success(
+                    JSONObject()
+                        .put("success", false)
+                        .put("error", "Android Context is null")
+                        .toString()
+                )
                 return
             }
 
-            // Создание клиента и сам вызов
             val client = InstallReferrerClient(currentContext)
 
             client.getInstallReferrer()
@@ -79,24 +79,23 @@ class FlutterRustoreMiniappRefererPlugin :
                         if (installReferrer != null) {
                             val json = JSONObject()
                             json.put("success", true)
-                            json.put("refererId", installReferrer.referrerId)
+                            json.put("referrerId", installReferrer.referrerId)
                             json.put("packageName", installReferrer.packageName)
                             result.success(json.toString())
                         } else {
-                            // Реферер может быть null по правилам RuStore (если уже запрашивали)
                             result.success(
-                                mapOf(
-                                    "success" to false,
-                                    "error" to "Referrer is null (already consumed or not found)"
-                                )
+                                JSONObject()
+                                    .put("success", false)
+                                    .put("error", "Referrer is null (already consumed or not found)")
+                                    .toString()
                             )
                         }
                     } catch (e: Exception) {
                         result.success(
-                            mapOf(
-                                "success" to false,
-                                "error" to "JSON parsing error: ${e.message}"
-                            )
+                            JSONObject()
+                                .put("success", false)
+                                .put("error", "JSON parsing error: ${e.message}")
+                                .toString()
                         )
                     }
                 }
@@ -108,16 +107,22 @@ class FlutterRustoreMiniappRefererPlugin :
                         is RuStoreException -> "Ошибка RuStore: ${throwable.message}"
                         else -> "Неизвестная ошибка: ${throwable.message ?: "нет текста"}"
                     }
-                    result.success(mapOf("success" to false, "error" to errorMessage))
+
+                    result.success(
+                        JSONObject()
+                            .put("success", false)
+                            .put("error", errorMessage)
+                            .toString()
+                    )
                 }
 
         } catch (e: Exception) {
-            // Этот блок поймает всё, что может пойти не так в основном потоке (синхронно)
-            val crashPrevention = mapOf(
-                "success" to false,
-                "error" to "Unexpected plugin crash: ${e.message}"
+            result.success(
+                JSONObject()
+                    .put("success", false)
+                    .put("error", "Unexpected plugin crash: ${e.message}")
+                    .toString()
             )
-            result.success(crashPrevention)
         }
     }
 

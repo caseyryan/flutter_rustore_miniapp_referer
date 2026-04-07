@@ -1,10 +1,10 @@
 import Flutter
 import UIKit
 
-public class FlutterRustoreMiniappRefererPlugin: NSObject, FlutterPlugin {
+public class FlutterRustoreMiniappReferrerPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "flutter_rustore_miniapp_referer", binaryMessenger: registrar.messenger())
-    let instance = FlutterRustoreMiniappRefererPlugin()
+    let channel = FlutterMethodChannel(name: "flutter_rustore_miniapp_referrer", binaryMessenger: registrar.messenger())
+    let instance = FlutterRustoreMiniappReferrerPlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 
