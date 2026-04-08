@@ -63,7 +63,7 @@ import 'package:flutter_rustore_miniapp_referrer/referrer_builder.dart';
 ReferrerInfoBuilder(
   debug: false,
   builder: (ReferrerData? referrerData) {
-    /// здесь будут данные
+    /// здесь будут данные или null
     return Center(child: Text('Ваш код'));
   },
 );
