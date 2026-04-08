@@ -4,14 +4,14 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'flutter_rustore_miniapp_referrer'
-  s.version          = '0.0.1'
+  s.version          = '1.0.0'
   s.summary          = 'A flutter plugin which allows to get marketing referrer from RuStore and Web App'
   s.description      = <<-DESC
 A flutter plugin which allows to get marketing referrer from RuStore and Web App
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'http://softmaestri.com/en/'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
+  s.author           = { 'Konstantin Serov' => 'konstantin.serov@gmail.com' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
